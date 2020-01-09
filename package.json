@@ -1,0 +1,8 @@
+{
+  "name": "php-date-range",
+  "version": "1.0.0",
+  "description": "Like the native date function in PHP but modified to include a range of dates.",
+  "author": "Tyler Willis (https://tylerewillis.com)",
+  "license": "ISC",
+  "main": "index.js"
+}
