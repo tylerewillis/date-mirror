@@ -1,4 +1,4 @@
-# php-date-range
+# date-mirror
 
 Like the native **date** function in PHP but modified to include a range of dates.
 
@@ -14,7 +14,7 @@ This is a simple JavaScript module available through the [npm registry](https://
 Installation is done using the [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```
-npm install php-date-range
+npm install date-mirror
 ```
 
 ## Usage
@@ -75,4 +75,4 @@ A few things to watch out for when inputting strings ...
 
 ## People
 
-The author and maintainer of **express-modularity** is [Tyler Willis](https://tylerewillis.com).
+The author and maintainer of **date-mirror** is [Tyler Willis](https://tylerewillis.com).
