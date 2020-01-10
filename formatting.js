@@ -98,8 +98,103 @@ y = (date) => { // 2-digit year, 20
 	return String(date.getFullYear()).substr(2)
 }
 
-module.exports = { d,D,j,l,N,S,w,z,W,F,m,M,n,t,L,o,Y,y }
+// Time
 
+a = (date) => { // am or pm
+	return (date.getHours() < 12) ? 'am' : 'pm'
+}
 
+A = (date) => { // am or pm
+	return (date.getHours() < 12) ? 'AM' : 'PM'
+}
 
+g = (date) => { // 12-hour format, 1 through 12
+	return (date.getHours() > 12) ? date.getHours() - 12 : date.getHours()
+}
 
+G = (date) => { // 24-hour format, 0 through 23
+	return date.getHours()
+}
+
+h = (date) => { // 12-hour format with leading zeros, 01 through 12
+	return (g(date) < 10) ? '0' + g(date) : g(date)
+}
+
+H = (date) => { // 24-hour format with leading zeros, 00 through 23
+	return (date.getHours() < 10) ? '0' + String(date.getHours()) : date.getHours()
+}
+
+i = (date) => { // Minutes with leading zeros, 00 to 59
+	return (date.getMinutes() < 10) ? '0' + String(date.getMinutes()) : date.getMinutes()
+}
+
+K = (date) => { // Minutes without leading zeros, 0 to 59
+	return date.getMinutes()
+}
+
+s = (date) => { // Seconds with leading zeros, 00 to 59
+	return (date.getSeconds() < 10) ? '0' + String(date.getSeconds()) : date.getSeconds()
+}
+
+P = (date) => {
+	return date.getSeconds()
+}
+
+v = (date) => { // Milliseconds, ex. 123
+	if (date.getMilliseconds().length == 3) {
+		return date.getMilliseconds()
+	} else if (date.getMilliseconds().length == 2) {
+		return String(date.getMilliseconds()) + '0'
+	} else {
+		return String(date.getMilliseconds()) + '00'
+	}
+}
+
+e = (date) => { // Timezone full
+	return String(date).split('(').pop().split(')')[0]
+}
+
+T = (date) => { // Timezone abbreviation -> experimental
+	var name = e(date)
+	var short = ''
+	name.split(' ').forEach((i) => { short += i.charAt(0) })
+	return short
+}
+
+Z = (date) => { // Timezone offset in minutes
+	return date.getTimezoneOffset()
+}
+
+I = (date) => {
+	var year = Y(date)
+	var jan = new Date(year, 0, 1)
+	var jul = new Date(year, 6, 1)
+	return (Z(date) < (Math.max(Z(jan), Z(jul)))) ? true : false
+}
+
+// Full date/time
+
+c = (date) => { // ISO 8601 date -> experimental
+	const day = Y(date) + '-' + m(date) + '-' + d(date) + 'T'
+	const time = G(date) + ':' + i(date) + ':' + s(date) + '.' + v(date)
+	var tzd = (Z(date) >= 0) ? '+' : '-'
+	if (Z(date) > 59) {
+		tzd += (Math.floor(Z(date) / 60) < 10) ? '0' + String(Math.floor(Z(date) / 60)) : Math.floor(Z(date))
+		tzd += ':'
+		tzd += (Z(date) % 60 < 10) ? '0' + String(Z(date) % 60) : Z(date) % 60
+	} else {
+		tzd += '00:'
+		tzd += (Z(date) < 10) ? '0' + String(Z(date)) : Z(date)
+	}
+	return day + time + tzd
+}
+
+r = (date) => { // RFC 2822 compliant date
+	return date
+}
+
+U = (date) => { // Seconds since Unix Epoch (Jan 1, 1970)
+	return Math.round(date.getTime() / 1000)
+}
+
+module.exports = { d,D,j,l,N,S,w,z,W,F,m,M,n,t,L,o,Y,y,a,A,g,G,h,H,i,K,s,P,v,e,T,Z,I,c,r,U }

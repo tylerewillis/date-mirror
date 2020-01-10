@@ -75,6 +75,25 @@ Below is a complete list of the parameters that can be used inside of the functi
  | o | ISO-8601 week-numbering year | e.g. 2008, 2020 |
  | Y | Full numeric representation of a year | e.g. 2008, 2020 |
  | y | 2-digit representation of a year | e.g. 08, 20 |
+ | a | Lowercase Ante meridiem and Post meridiem | am or pm |
+ | A | Uppercase Ante meridiem and Post meridiem | AM or PM |
+ | g | 12-hour format without leading zeros | 1 through 12 |
+ | G | 24-hour format without leading zeros | 0 through 23 |
+ | h | 12-hour format with leading zeros | 01 through 12 |
+ | H | 24-hour format with leading zeros | 00 through 23 |
+ | i | Minutes with leading zeros | 00 through 59 |
+ | K | Minutes without leading zeros | 0 through 59 |
+ | s | Seconds with leading zeros | 00 through 59 |
+ | P | Seconds without leading zeros | 0 through 59 |
+ | v | Milliseconds, 3-digit | 789 |
+ | e | Timezone name | Eastern Standard Time |
+ | T | Timezone abbreviation | EST |
+ | I | Whether or not date is in daylight savings time | true or false |
+ | Z | Timezone offset in minutes | -720 through 840 |
+ | c | ISO 8601 date | 2020-01-01T12:30:30.000+05:00 |
+ | r | RFC 2822 compliant date | Sun Nov 01 2020 02:00:00 GMT-0500 (Eastern Standard Time) |
+ | U | Seconds since the Unix Epoch | 1970 was a long time ago, so ... |
+
 
 Plain text can also be added and needs to be between open- and closing-brackets: []. Anything in between the brackets will be treated as plain text and returned along with the dates.
 
