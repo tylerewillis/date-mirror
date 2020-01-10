@@ -78,11 +78,76 @@ Below is a complete list of the parameters that can be used inside of the functi
 
 Plain text can also be added and needs to be between open- and closing-brackets: []. Anything in between the brackets will be treated as plain text and returned along with the dates.
 
+## How It Works
+
+Returned strings are meant to perfectly mirror the inputted format (including special characters and spaces).
+
+```javascript
+date('&^%$') // &^%$
+date('pie') // pie
+````
+
+The reason why the above parameters returned an exact match of what was inputted is because those characters aren't valid date parameters (see table above). If the function detects a valid date parameter, it will substitute the character for the relevant date value. If not, it will just return the character.
+
+## Date Ranges
+
+You can return date ranges by inputting 2 additional parameters:
+
+```javascript
+date('F jS - jS, Y', '7/16/69', '7/24/69') // July 16th - 24th, 1969
+date('m/d/Y [until] m/d/Y', 'Sep 1 1939', 'Sep 2 1945') // 09/01/1939 until 09/02/1945
+````
+
+When building the formatting string, know that the first occurrence of a valid date character will call the 1st date and a repeat of the same character will then call the 2nd date:
+
+```javascript
+date('m - m', '1-5-20', '3-8-20') // 01 - 03
+date('m/d - m/d', '1-5-20', '3-8-20') // 01/05 - 03/08
+````
+
+But keep in mind that the returned string will **mirror** the format. That could create a problem like this:
+
+```javascript
+date('F jS - jS', '1-5-20', '3-8-20') // January 5th - 8th
+````
+
+Where the returned string suggests a date range of January 5th - 8th even though the literal date range is January 5th through March 8th.
+
+We may decide to build a function to fix this in the future but, for now, we recommend doing something like this to review the date range first and then building a format based on the results:
+
+```javascript
+const date1 = '1-5-20'
+const date2 = '3-8-20'
+if (date('F', date1) == date('F', date2)) {
+  console.log(date('F jS - jS', date1, date2))
+} else {
+  console.log(date('F jS - F jS', date1, date2)) // January 5th - March 8th
+}
+````
+
+## Plain Text
+
+Sometimes you want to include some text between dates in a range:
+
+```javascript
+date('M jS - jS', '1/5/20', '1/8/20') // Jan 5th - 8th
+date('M jS [through] jS', '1/5/20', '1/8/20') // Jan 5th through 8th
+date('M jS [until the] jS', '1/5/20', '1/8/20') // Jan 5th until the 8th
+```
+
+This can be done one of 2 ways - either by including a character not included in the list of parameters above (see table) like the hyphen used in the first example, or by putting any desired plain text inside of opening- and closing-brackets '[]'.
+
 ## Gotchas
 
 A few things to watch out for when inputting strings ...
 
 1. If you don't include a year with your input, then it'll assume the current year.
+2. If returning a range, check for matching months or years first before building your formatting string.
+3. We would recommend getting in the habit of putting plain text between brackets '[]'. You don't want to make the mistake of including a valid date parameter in text that you want to be printed as plain and getting a result like this:
+
+```javascript
+date('M jS to jS', '1/5/20', '1/8/20') // Jan 5th 312020 8th
+````
 
 ## People
 
