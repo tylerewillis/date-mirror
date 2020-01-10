@@ -1,9 +1,9 @@
 # date-mirror
 
-Like the native **date** function in PHP but modified to include a range of dates.
+Like the native **date** function in PHP but modified to include date ranges and plain text.
 
 ```javascript
-const date = require('php-date-range')
+const date = require('date-mirror')
 date('F jS, Y')
 ```
 
