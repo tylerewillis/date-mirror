@@ -59,4 +59,4 @@ function date(template, s = null, e = null){
   }
 }
 
-console.log(date('m/d/Y [until] m/d/Y', 'September 1 1939', 'September 2 1945'))
+module.exports = date
