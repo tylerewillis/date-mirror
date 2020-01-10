@@ -64,6 +64,17 @@ Below is a complete list of the parameters that can be used inside of the functi
  | N | ISO-8601 numeric representation of the day of the week | 1 (for Monday) through 7 (for Sunday) |
  | S | English ordinal suffix for the day of the month | st, nd, rd or th |
  | w | Numeric representation of the day of the week | 0 (for Sunday) through 6 (for Saturday) |
+ | z | The day of the year starting from 0 | 0 through 365 |
+ | W | ISO-8601 week number of year | e.g. 12, 40 |
+ | F | Textual representation of a month | January through December |
+ | m | Numeric representation of a month with leading zeros | 01 through 12 |
+ | M | Short textual representation of a month | Jan through Dec |
+ | n | Numeric representation of a month without leading zeros | 1 through 12 |
+ | t | Number of days in the given month | 28 through 31 |
+ | L | Whether it's a leap year | true or false |
+ | o | ISO-8601 week-numbering year | e.g. 2008, 2020 |
+ | Y | Full numeric representation of a year | e.g. 2008, 2020 |
+ | y | 2-digit representation of a year | e.g. 08, 20 |
 
 Plain text can also be added and needs to be between open- and closing-brackets: []. Anything in between the brackets will be treated as plain text and returned along with the dates.
 
