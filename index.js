@@ -1,4 +1,4 @@
-const form = require('./formatting')
+const form = require('./formatting-min')
 
 function charToFunc(c) {
   return "range += form." + c + "(start)"
@@ -44,7 +44,7 @@ function date(template, s = null, e = null){
     const end = new Date(e)
     return getRange(template, start, end)
 
-  } else { // If end date not set
+  } else {
     var range = ''
     var text = false
     const start = (s) ? new Date(s) : new Date();
