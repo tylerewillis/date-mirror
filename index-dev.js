@@ -256,4 +256,6 @@ function date(template, s = null, e = null){
   }
 }
 
-module.exports = date
+if (!document) {
+  module.exports = date
+}
