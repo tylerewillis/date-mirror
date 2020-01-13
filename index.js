@@ -1,4 +1,4 @@
-const form = require('formatting-min.js')
+const form = require('./formatting-min.js')
 
 function charToFunc(c) {
   return "range += form." + c + "(start)"
