@@ -1,15 +1,15 @@
 const form = require('formatting-min.js')
 
 function charToFunc(c) {
-  return "range += " + c + "(start)"
+  return "range += form." + c + "(start)"
 }
 
 function charToFuncRangeStart(c) {
-  return "range += " + c + "(start)"
+  return "range += form." + c + "(start)"
 }
 
 function charToFuncRangeEnd(c) {
-  return "range += " + c + "(end)"
+  return "range += form." + c + "(end)"
 }
 
 function getRange(template, start, end) {
