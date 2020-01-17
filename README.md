@@ -170,4 +170,4 @@ date('M jS to jS', '1/5/20', '1/8/20') // Jan 5th 312020 8th
 
 ## People
 
-The author and maintainer of **date-mirror** is [Tyler Willis](https://tylerewillis.com).
+The author and maintainer of **date-mirror** is [Tyler Willis](https://tylerewillis.com). Support me [on Patreon](https://www.patreon.com/tylerwillis)!
