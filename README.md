@@ -17,6 +17,12 @@ Installation is done using the [`npm install` command](https://docs.npmjs.com/ge
 npm install date-mirror
 ```
 
+Or in the browser by loading the library from unpkg and using the ```date()``` variable:
+
+```javascript
+<script src='https://unpkg.com/date-mirror'></script>
+```
+
 ## Usage
 
 This is the function's signature:
