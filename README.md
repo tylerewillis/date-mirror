@@ -19,7 +19,7 @@ npm install date-mirror
 
 Or in the browser by loading the library from unpkg and using the ```date()``` variable:
 
-```javascript
+```html
 <script src='https://unpkg.com/date-mirror'></script>
 ```
 
