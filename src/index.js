@@ -43,7 +43,6 @@ function date(template, s = null, e = null){
     const start = new Date(s)
     const end = new Date(e)
     return getRange(template, start, end)
-
   } else {
     var range = ''
     var text = false
