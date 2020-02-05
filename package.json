@@ -1,6 +1,6 @@
 {
   "name": "date-mirror",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Like the native date function in PHP but modified to include ranges and plain text.",
   "author": "Tyler Willis (https://tylerewillis.com)",
   "license": "ISC",

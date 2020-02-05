@@ -40,14 +40,14 @@ function getRange(template, start, end) {
 function date(template, s = null, e = null){
 
   if (e) {
-    const start = new Date(s)
-    const end = new Date(e)
+    const start = new Date(s).toLocaleString()
+    const end = new Date(e).toLocaleString()
     return getRange(template, start, end)
 
   } else {
     var range = ''
     var text = false
-    const start = (s) ? new Date(s) : new Date();
+    const start = (s) ? new Date(s).toLocaleString() : new Date().toLocaleString();
     [...template].forEach((c) => {
       if (c == '[') text = true
       else if (c == ']') text = false
