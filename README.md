@@ -172,7 +172,18 @@ A few things to watch out for when inputting strings ...
 
 ```javascript
 date('M jS to jS', '1/5/20', '1/8/20') // Jan 5th 312020 8th
-````
+```
+
+## New
+
+Date-Mirror v1.3 and up now supports date string inputs in YYYY-MM-DD format as opposed to the native Date function in JavaScript.
+
+```javascript
+date('M', '2020-01-01') // Jan
+date('M', '2020/01/01') // Jan
+```
+
+Previously, and in native JavaScript, this would produce inconsistent results.
 
 ## People
 
