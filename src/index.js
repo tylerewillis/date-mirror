@@ -37,7 +37,8 @@ function getRange(template, start, end) {
   return range
 }
 
-const isFourTwoFour = (date) => {
+const isFourTwoFour = (val) => {
+  let date = (typeof val === 'string') ? val : val.toString()
   if (!date.length == 10) return false
   const divider = date.charAt(4)
   const array = date.split(divider)
